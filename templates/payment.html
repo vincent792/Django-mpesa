@@ -14,8 +14,13 @@
     <h1>Payment</h1>
     <form method="post" action="{% url 'initiate_stk_push' %}">
         {% csrf_token %}
+        <label for="phone_number">Phone Number:</label><br>
+        <input type="number" name="phone_number" id="phone_number" required><br>
+        <label for="">Amount:</label><br>
+        <input type="number" name="amount" required><br><br>
         <input type="submit" value="Pay">
     </form>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

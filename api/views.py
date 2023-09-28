@@ -13,10 +13,16 @@ import requests
 
 
 def payment(request):
+   
     return render(request, 'payment.html')
 
 
 def initiate_stk_push(request):
+    if  request.method=='POST':
+        phone_number=request.POST['phone_number']
+        Amount=request.POST['amount']
+        # print(phone)
+
     try:     
 
         # Working on the timestamp
@@ -49,10 +55,10 @@ def initiate_stk_push(request):
             "Password": decoded_password,
             "Timestamp": formatted_date,
             "TransactionType": "CustomerPayBillOnline",
-            "Amount": "2",
-            "PartyA": keys.phone_number,  # Use the user's phone number
+            "Amount": Amount,
+            "PartyA": phone_number,  # Use the user's phone number
             "PartyB": keys.shortCode,
-            "PhoneNumber": keys.phone_number,  # Use the user's phone number
+            "PhoneNumber": phone_number,  # Use the user's phone number
             "CallBackURL": "https://django-mpesa-vincent792.vercel.app/api/lipanampesa/",
             "AccountReference": "test",
             "TransactionDesc": "test"
