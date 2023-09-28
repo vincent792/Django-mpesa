@@ -49,7 +49,7 @@ def initiate_stk_push(request):
             "Password": decoded_password,
             "Timestamp": formatted_date,
             "TransactionType": "CustomerPayBillOnline",
-            "Amount": "1",
+            "Amount": "2",
             "PartyA": keys.phone_number,  # Use the user's phone number
             "PartyB": keys.shortCode,
             "PhoneNumber": keys.phone_number,  # Use the user's phone number
